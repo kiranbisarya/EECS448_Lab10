@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+<body>
+<form action="ViewUserPosts.php" method="post">
+    
+    <label for="users">Select a User:</label>
+    <select name="users" id="users">
+        
+        <?php 
+            $mysqli = new mysqli("mysql.eecs.ku.edu", "kiranbisarya", "kiranpass", "kiranbisarya"); 
+            $result = mysqli_query($mysqli,"SELECT * FROM myUsers"); 
+            while($row = mysqli_fetch_array($result)) {           
+                echo '<option value="'.$row[0].'">'.$row[0].'</option>';  
+            } 
+             
+        ?>
+        
+    </select>
+
+
+<br>
+<input type="submit" class="button" value="Submit">
+<br>
+
+
+</form>
+
+
+
+
+</body>
+</html>
